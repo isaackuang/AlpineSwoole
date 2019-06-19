@@ -11,8 +11,8 @@ RUN apk --no-cache --progress add --virtual .build-deps \
     make && make install && \
     apk del .build-deps
 
-RUN curl https://php.codecasts.rocks/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub && \
-    echo "@php https://php.codecasts.rocks/v3.8/php-7.2" >> /etc/apk/repositories && \
+RUN curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub && \
+    echo "@php https://dl.bintray.com/php-alpine/v3.8/php-7.2" >> /etc/apk/repositories && \
     apk --no-cache --progress add \
     libstdc++ \
     php7-fpm@php php7-cli@php php7-openssl@php php7-dev@php
