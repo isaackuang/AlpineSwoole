@@ -14,6 +14,7 @@ RUN curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/ke
     phpize && \
     ./configure --enable-sockets --enable-http2 --enable-openssl && \
     make && make install && \
+    cd /tmp && rm -rf * && \
     apk --no-cache --progress del .build-deps
 
 COPY config /
