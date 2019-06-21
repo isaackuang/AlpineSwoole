@@ -17,4 +17,6 @@ RUN curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/ke
     cd /tmp && rm -rf * && \
     apk --no-cache --progress del .build-deps
 
+WORKDIR /var/www/html
+
 COPY config /
