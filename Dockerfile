@@ -15,7 +15,9 @@ RUN curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/ke
     ./configure --enable-sockets --enable-http2 --enable-openssl && \
     make && make install && \
     cd /tmp && rm -rf * && \
-    apk --no-cache --progress del .build-deps
+    apk --no-cache --progress del .build-deps && \
+    rm -rf /etc/php7/conf.d/00_sockets.ini
+
 
 WORKDIR /var/www/html
 
