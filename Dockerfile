@@ -4,9 +4,9 @@ RUN curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/ke
     echo "@php https://dl.bintray.com/php-alpine/v3.8/php-7.2" >> /etc/apk/repositories && \
     apk --no-cache --progress add \
     libstdc++ openssl \
-    php7-fpm@php php7-cli@php php7-openssl@php php7-dev php7-sockets@php && \
+    php7-cli@php php7-openssl@php php7-sockets@php && \
     apk --no-cache --progress add --virtual .build-deps \
-    gcc g++ zlib make openssl-dev && \
+    gcc g++ zlib make openssl-dev php7-dev && \
     cd /tmp && \
     wget https://github.com/swoole/swoole-src/archive/v4.3.5.tar.gz && \
     tar zxvf v4.3.5.tar.gz && \
