@@ -8,11 +8,11 @@ RUN curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/ke
     apk --no-cache --progress add --virtual .build-deps \
     gcc g++ zlib make openssl-dev php7-dev && \
     cd /tmp && \
-    wget https://github.com/swoole/swoole-src/archive/v4.3.5.tar.gz && \
-    tar zxvf v4.3.5.tar.gz && \
-    cd swoole-src-4.3.5 && \
+    wget https://github.com/swoole/swoole-src/archive/v4.4.1.tar.gz && \
+    tar zxvf v4.4.1.tar.gz && \
+    cd swoole-src-4.4.1 && \
     phpize && \
-    ./configure --enable-sockets --enable-http2 --enable-openssl && \
+    ./configure --enable-sockets --enable-http2 --enable-openssl --enable-coroutine-postgresql && \
     make && make install && \
     cd /tmp && rm -rf * && \
     apk --no-cache --progress del .build-deps && \
